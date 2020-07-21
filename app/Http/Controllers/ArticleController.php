@@ -21,6 +21,15 @@ class ArticleController extends Controller
                 ],
             ],
         ];
-        return view('articles.index', ['articles' => $articles]);
+        // viewメソッド
+        // 第一引数はビューファイルの指定
+        // 第二引数はビューファイルに渡す変数の名称と、その変数の値を連想配列で指定
+        // return view('articles.index', ['articles' => $articles]);
+        
+        // コレでもイケる
+        return view('articles.index')->with(['articles' => $articles]);
+
+        // コレでもイケる。compact関数
+        // return view('articles.index', compact('articles'));
     }
 }
