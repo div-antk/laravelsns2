@@ -8,7 +8,8 @@
   {{-- headタグやscriptタグでのCSSやJSONを、各画面のBladeで都度指定しなくて済む --}}
   {{-- その一方で、headタグ内のtitleタグの値を、各画面で異なるものにできる --}}
 
-  @section('content')
+@section('content')
+  @include('nav')
   <div class="container">
     @foreach($articles as $article)
     <div class="card mt-3">
