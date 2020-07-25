@@ -30,4 +30,21 @@ class ArticleController extends Controller
     {
         return view('articles.create');
     }
+
+    // 確認画面
+    public function confirm(Request $request)
+    {
+        // 入力値の取得
+        $articles = new Article($request->all());
+
+        // セッションに保存
+        $request->session()->put('articles', '$articles');
+
+        return view('articles.confirm')->with(['articles' => $articles]);
+    }
+
+    public function store()
+    {
+        //
+    }
 }

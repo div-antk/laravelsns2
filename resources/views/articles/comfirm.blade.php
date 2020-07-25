@@ -12,10 +12,7 @@
           <div class="card-body pt-0">
             @include('error_card_list')
             <div class="card-text">
-              <form method="POST" action="{{ route('articles.confirm') }}">
-                @include('articles.form')
-                <button type="submit" class="btn blue-gradient btn-block">投稿する</button>
-              </form>
+              ああああ
             </div>
           </div>
         </div>
