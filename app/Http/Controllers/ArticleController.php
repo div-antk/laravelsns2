@@ -44,8 +44,12 @@ class ArticleController extends Controller
         return view('articles.confirm')->with(['articles' => $articles]);
     }
 
-    public function store()
+    public function store(ArticleRequest $request, Article $article)
     {
-        //
+        $article->fill($request->all());
+        $article->user_id = $request->user()->id;
+        $article->save();
+        
+        return view('articles.complete');
     }
 }

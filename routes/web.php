@@ -15,4 +15,4 @@ Route::get('articles/create', 'ArticleController@create')
 // 確認画面
 Route::post('articles/confirm', 'ArticleController@confirm')->name('articles.confirm');
 
-Route::post('articles/store', 'ArticleController@store')->name('articles.store');
+Route::post('articles/complete', 'ArticleController@store')->name('articles.store');

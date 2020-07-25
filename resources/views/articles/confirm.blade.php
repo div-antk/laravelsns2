@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '記事投稿')
+@section('title', '投稿確認')
 
 @include('nav')
 
@@ -14,9 +14,13 @@
             <div class="card-text">
               <form method="POST" action="{{ route('articles.store') }}">
                 @csrf
+
+                <input name="title" value="{{ $articles['title'] }}" type="hidden">
+                <input name="body" value="{{ $articles['body'] }}" type="hidden">
+
                 {{ $articles->title }}<br>
                 {{ $articles->body }}<br>
-                <input type="submit" value="送信">
+                <button type="submit" name="action" value="submit">投稿する</button>
               </form>
             </div>
           </div>
