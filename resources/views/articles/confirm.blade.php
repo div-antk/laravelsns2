@@ -12,7 +12,12 @@
           <div class="card-body pt-0">
             @include('error_card_list')
             <div class="card-text">
-              ああああ
+              <form method="POST" action="{{ route('articles.store') }}">
+                @csrf
+                {{ $articles->title }}<br>
+                {{ $articles->body }}<br>
+                <input type="submit" value="送信">
+              </form>
             </div>
           </div>
         </div>

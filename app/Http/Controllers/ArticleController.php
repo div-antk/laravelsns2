@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // モデルを使う
 use App\Models\Article;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
 
@@ -38,7 +39,7 @@ class ArticleController extends Controller
         $articles = new Article($request->all());
 
         // セッションに保存
-        $request->session()->put('articles', '$articles');
+        // $request->session()->put('articles', '$articles');
 
         return view('articles.confirm')->with(['articles' => $articles]);
     }
