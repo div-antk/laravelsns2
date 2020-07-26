@@ -23,7 +23,7 @@ class ArticleController extends Controller
         // allメソッドはモデルが持つクラスメソッド
         // $articles = Article::all()->sortByDesc('created_at');
 
-        $article = $this->Article->getFirstRecordByTitle();
+        $articles = $this->Article->getAll();
 
         // viewメソッド
         // 第一引数はビューファイルの指定
