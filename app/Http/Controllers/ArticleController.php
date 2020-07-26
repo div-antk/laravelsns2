@@ -6,14 +6,24 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use App\Repositories\Article\ArticleRepositoryInterface;
 
 
 class ArticleController extends Controller
 {
+    protected $Article;
+
+    public function __construct(ArticleRepositoryInterface $ArticleRepository)
+    {
+        $this->Article = $ArticleRepository;
+    }
+
     public function index()
     {
         // allメソッドはモデルが持つクラスメソッド
-        $articles = Article::all()->sortByDesc('created_at');
+        // $articles = Article::all()->sortByDesc('created_at');
+
+        $article = $this->Article->getFirstRecordByTitle();
 
         // viewメソッド
         // 第一引数はビューファイルの指定
