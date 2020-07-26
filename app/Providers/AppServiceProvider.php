@@ -21,6 +21,16 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    // インターフェースと実装クラスを登録
+    public function register()
+    {
+        $this->app->bind(
+            \App\Repositories\Article\ArticleRepositoryInterface::class,
+            \App\Repositories\Article\ArticleRepository::class
+        );
+    }
+
     public function boot()
     {
         //
