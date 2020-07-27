@@ -62,4 +62,9 @@ class ArticleController extends Controller
         
         return view('articles.complete');
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit')->with(['article' => $article]);
+    }
 }

@@ -15,4 +15,11 @@ Route::get('articles/create', 'ArticleController@create')
 // 確認画面
 Route::post('articles/confirm', 'ArticleController@confirm')->name('articles.confirm');
 
+// 完了画面
 Route::post('articles/complete', 'ArticleController@store')->name('articles.store');
+
+// 編集
+Route::get('articles/{article}/edit', 'ArticleController@edit')->name('articles.edit');
+
+// 更新
+Route::patch('articles/{article}', 'ArticleController@update')->name('articles.update');
