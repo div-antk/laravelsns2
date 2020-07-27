@@ -10,5 +10,5 @@ interface ArticleRepositoryInterface
      * @var string $title
      * @return object
      */
-    public function getFirstRecordByTitle($title);
+    public function getAll();
 }

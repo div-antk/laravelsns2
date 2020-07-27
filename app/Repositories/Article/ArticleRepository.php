@@ -24,8 +24,8 @@ class ArticleRepository Implements ArticleRepositoryInterface
     * @return object
     */
 
-  public function getFirstRecordByTitle($title)
+  public function getAll()
   {
-    return $this->article->where('title', '=', $title)->first();
+    return Article::all();
   }
 }

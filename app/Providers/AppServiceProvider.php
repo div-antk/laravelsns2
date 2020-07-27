@@ -11,16 +11,6 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
 
     // インターフェースと実装クラスを登録
     public function register()
@@ -30,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Article\ArticleRepository::class
         );
     }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
 
     public function boot()
     {
