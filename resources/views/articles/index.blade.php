@@ -55,7 +55,7 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                {{-- <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}"> --}}
+                <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
                   @csrf
                   @method('DELETE')
                   <div class="modal-body">
