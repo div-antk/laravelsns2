@@ -24,7 +24,7 @@ Route::get('articles/{article}/edit', 'ArticleController@edit')->name('articles.
 // 更新
 Route::patch('articles/{article}', 'ArticleController@update')->name('articles.update');
 
-Route::show('articles/{article}', 'ArticleController@show')->name('articles.show');
+Route::get('articles/{article}', 'ArticleController@show')->name('articles.show');
 
 // 削除
 Route::delete('articles/{article}', 'ArticleController@destroy')->name('articles.destroy');
