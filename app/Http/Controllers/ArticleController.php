@@ -62,4 +62,22 @@ class ArticleController extends Controller
         
         return view('articles.complete');
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit')->with(['article' => $article]);
+    }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->fill($request->all())->save();
+
+        return redirect()->route('articles.index');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+        return redirect()->route('articles.index');
+    }
 }
