@@ -19,7 +19,8 @@ class ArticleController extends Controller
         $this->Article = $ArticleRepository;
         
         // ポリシーの適用
-        $this->authorizeResource(Article::class, 'article');
+        // $this->authorizeResource(Article::class, 'article');
+
     }
 
     public function index()
