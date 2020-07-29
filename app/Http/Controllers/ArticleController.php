@@ -15,7 +15,11 @@ class ArticleController extends Controller
 
     public function __construct(ArticleRepositoryInterface $ArticleRepository)
     {
+        // リポジトリパターン
         $this->Article = $ArticleRepository;
+        
+        // ポリシーの適用
+        $this->authorizeResource(Article::class, 'article');
     }
 
     public function index()
