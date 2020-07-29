@@ -14,8 +14,11 @@ class UserController extends Controller
         // なのでfirstメソッドを使って最初の1件だけを取得して変数に代入している
         $user = User::where('name', $name)->first();
 
+        $articles = $user->articles->sortByDesc('created_at');
+
         return view('users.show', [
             'user' => $user,
+            'articles' => $articles,
         ]);
     }
 }
