@@ -26,6 +26,6 @@ class ArticleRepository Implements ArticleRepositoryInterface
 
   public function getAll()
   {
-    return Article::all();
+    return Article::all()->sortByDesc('created_at');
   }
 }
