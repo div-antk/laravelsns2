@@ -11,4 +11,6 @@ interface ArticleRepositoryInterface
      * @return object
      */
     public function getAll();
+
+    public function userGetArticle($user);
 }

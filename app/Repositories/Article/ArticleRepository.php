@@ -3,6 +3,8 @@
 namespace App\Repositories\Article;
 
 use App\Models\Article;
+// use App\Models\User;
+
 
 class ArticleRepository Implements ArticleRepositoryInterface
 {
@@ -27,5 +29,10 @@ class ArticleRepository Implements ArticleRepositoryInterface
   public function getAll()
   {
     return Article::all()->sortByDesc('created_at');
+  }
+
+  public function userGetArticle($user_id)
+  {
+    return Article::find('user_id', $user_id)->sortByDesc('created_at');
   }
 }
