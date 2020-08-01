@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 // モデルを使う
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
+use App\Repositories\User\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Repositories\Article\ArticleRepositoryInterface;
 
 
 class ArticleController extends Controller
@@ -20,7 +20,6 @@ class ArticleController extends Controller
         
         // ポリシーの適用
         // $this->authorizeResource(Article::class, 'article');
-
     }
 
     public function index()

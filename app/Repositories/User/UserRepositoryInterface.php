@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Article;
+namespace App\Repositories\User;
 
-interface ArticleRepositoryInterface
+interface UserRepositoryInterface
 {
       /**
      * titleで1レコードを取得
@@ -10,5 +10,5 @@ interface ArticleRepositoryInterface
      * @var string $title
      * @return object
      */
-    public function getAll();
+    public function getUser($user);
 }
