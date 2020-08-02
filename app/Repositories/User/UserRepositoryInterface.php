@@ -5,10 +5,10 @@ namespace App\Repositories\User;
 interface UserRepositoryInterface
 {
       /**
-     * titleで1レコードを取得
+     * Nameで1レコードを取得
      *
-     * @var string $title
+     * @var string $name
      * @return object
      */
-    public function getUser($user);
+    public function getUser($name);
 }

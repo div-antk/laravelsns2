@@ -4,7 +4,7 @@ namespace App\Repositories\User;
 
 use App\Models\User;
 
-class UserRepository Implements UserRepositoryInterface
+class UserRepository implements UserRepositoryInterface
 {
   protected $user;
 
@@ -14,11 +14,13 @@ class UserRepository Implements UserRepositoryInterface
 
   public function __construct(User $user)
   {
-    $this->user = $user;
+      $this->user = $user;
   }
 
   public function getUser($name)
   {
-    return User::where('name', '$name')->first();
+    // return User::where('name', '$name')->first();
+    return $this->user->where('name', '=', $name)->first();
+
   }
 }

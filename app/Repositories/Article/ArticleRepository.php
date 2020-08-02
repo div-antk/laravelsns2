@@ -4,7 +4,7 @@ namespace App\Repositories\Article;
 
 use App\Models\Article;
 
-class ArticleRepository Implements ArticleRepositoryInterface
+class ArticleRepository implements ArticleRepositoryInterface
 {
   protected $article;
 
