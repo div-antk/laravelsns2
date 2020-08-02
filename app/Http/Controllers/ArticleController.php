@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 // モデルを使う
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
-use App\Repositories\User\ArticleRepositoryInterface;
+use App\Repositories\Article\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
 
 
@@ -13,10 +13,10 @@ class ArticleController extends Controller
 {
     protected $Article;
 
-    public function __construct(ArticleRepositoryInterface $ArticleRepository)
+    public function __construct(ArticleRepositoryInterface $articleRepository)
     {
         // リポジトリパターン
-        $this->Article = $ArticleRepository;
+        $this->articleRepository = $articleRepository;
         
         // ポリシーの適用
         // $this->authorizeResource(Article::class, 'article');
@@ -27,7 +27,7 @@ class ArticleController extends Controller
         // allメソッドはモデルが持つクラスメソッド
         // $articles = Article::all()->sortByDesc('created_at');
 
-        $articles = $this->Article->getAll();
+        $articles = $this->articleRepository->getAll();
 
         // viewメソッド
         // 第一引数はビューファイルの指定

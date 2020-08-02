@@ -10,5 +10,6 @@ interface ArticleRepositoryInterface
      * @var string $title
      * @return object
      */
+    
     public function getAll();
 }
