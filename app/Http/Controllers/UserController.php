@@ -21,7 +21,7 @@ class UserController extends Controller
         // $this->authorizeResource(Article::class, 'article');
     }
 
-    public function show(name $name)
+    public function show(String $name)
     {
         // whereメソッドで$nameと一致する名前を持つユーザーモデルをコレクションで取得する
         // ただし取得したのはユーザーモデル1件が入ったコレクション（配列）なので、そのままではモデルとして取り扱うことができない
