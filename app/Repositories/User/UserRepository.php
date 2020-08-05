@@ -21,6 +21,5 @@ class UserRepository implements UserRepositoryInterface
   {
     // return User::where('name', '$name')->first();
     return $this->user->where('name', $name)->first();
-
   }
 }
