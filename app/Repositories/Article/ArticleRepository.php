@@ -37,4 +37,9 @@ class ArticleRepository implements ArticleRepositoryInterface
     $article->user_id = $request->user()->id;
     return $article->save();
   }
+
+  public function updateArticle($request, $article)
+  {
+    return $article->fill($request->all())->save();
+  }
 }

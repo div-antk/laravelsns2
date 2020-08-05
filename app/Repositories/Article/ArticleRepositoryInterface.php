@@ -14,4 +14,6 @@ interface ArticleRepositoryInterface
     public function getAll();
 
     public function createArticle($request, $article);
+
+    public function updateArticle($request, $article);
 }
