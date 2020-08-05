@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    protected $Article;
+    protected $article;
 
     public function __construct(ArticleRepositoryInterface $articleRepository)
     {
@@ -25,8 +25,6 @@ class ArticleController extends Controller
     public function index()
     {
         // allメソッドはモデルが持つクラスメソッド
-        // $articles = Article::all()->sortByDesc('created_at');
-
         $articles = $this->articleRepository->getAll();
 
         // viewメソッド
@@ -43,6 +41,7 @@ class ArticleController extends Controller
 
     public function create()
     {
+
         return view('articles.create');
     }
 
@@ -53,16 +52,21 @@ class ArticleController extends Controller
         $articles = new Article($request->all());
 
         // セッションに保存
-        // $request->session()->put('articles', '$articles');
+        $request->session()->put('articles', '$articles');
 
         return view('articles.confirm')->with(['articles' => $articles]);
     }
 
+    // Laravelのコントローラーはメソッドの引数で型宣言を行うと
+        // そのクラスのインスタンスが自動で生成されてメソッド内で使えるようになります。
+    // このようにメソッドの内部で他のクラスのインスタンスを生成するのではなく
+        // 外で生成されたクラスのインスタンスをメソッドの引数として受け取る流れをDI(Dependency Injection)と言います。
     public function store(ArticleRequest $request, Article $article)
     {
-        $article->fill($request->all());
-        $article->user_id = $request->user()->id;
-        $article->save();
+        // ArticleクラスのDIを行わない場合の記述は以下
+        // $article = new Article();
+
+        $this->articleRepository->createArticle($request, $article);
         
         return view('articles.complete');
     }

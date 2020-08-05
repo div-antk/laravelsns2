@@ -22,14 +22,12 @@ class UserController extends Controller
 
     public function show(String $name)
     {
-        // whereメソッドで$nameと一致する名前を持つユーザーモデルをコレクションで取得する
-        // ただし取得したのはユーザーモデル1件が入ったコレクション（配列）なので、そのままではモデルとして取り扱うことができない
-        // なのでfirstメソッドを使って最初の1件だけを取得して変数に代入している
         $user = $this->userRepository->getUser($name);
 
         $articles = $user->articles->sortByDesc('create_at');
 
         return view('users.show', [
+            // 'user_id' => $user_id,
             'user' => $user,
             'articles' => $articles,
         ]);

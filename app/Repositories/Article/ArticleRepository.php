@@ -3,6 +3,8 @@
 namespace App\Repositories\Article;
 
 use App\Models\Article;
+use Illuminate\Http\Request;
+
 
 class ArticleRepository implements ArticleRepositoryInterface
 {
@@ -27,5 +29,12 @@ class ArticleRepository implements ArticleRepositoryInterface
   public function getAll()
   {
     return Article::all()->sortByDesc('created_at');
+  }
+
+  public function createArticle($request, $article)
+  {
+    $article->fill($request->all());
+    $article->user_id = $request->user()->id;
+    return $article->save();
   }
 }
