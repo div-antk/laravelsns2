@@ -42,4 +42,9 @@ class ArticleRepository implements ArticleRepositoryInterface
   {
     return $article->fill($request->all())->save();
   }
+
+  public function deleteArticle($article)
+  {
+    return Article::find($request->id)->delete();
+  }
 }
