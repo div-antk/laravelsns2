@@ -90,7 +90,9 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        $article->delete();
+        // dd($this);
+        $this->articleRepository->deleteArticle();
+
         return redirect()->route('articles.index');
     }
 }
