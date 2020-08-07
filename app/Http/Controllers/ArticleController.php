@@ -48,9 +48,9 @@ class ArticleController extends Controller
     // 確認画面
     public function confirm(Request $request)
     {
-        dd($article);
         $articles = $this->articleRepository->sessionArticle($request);
 
+        // dd($articles);
         return view('articles.confirm')->with(['articles' => $articles]);
     }
 
