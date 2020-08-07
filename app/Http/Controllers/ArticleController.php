@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // モデルを使う
-use App\Models\Article;
+// use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Repositories\Article\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
@@ -48,12 +48,9 @@ class ArticleController extends Controller
     // 確認画面
     public function confirm(Request $request)
     {
-        // 入力値の取得
-        $articles = new Article($request->all());
+        $articles = $this->articleRepository->sessionArticle($request);
 
-        // セッションに保存
-        $request->session()->put('articles', '$articles');
-
+        // dd($articles);
         return view('articles.confirm')->with(['articles' => $articles]);
     }
 
@@ -90,8 +87,7 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        // dd($this);
-        $this->articleRepository->deleteArticle();
+        $this->articleRepository->deleteArticle($article);
 
         return redirect()->route('articles.index');
     }
