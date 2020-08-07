@@ -31,6 +31,15 @@ class ArticleRepository implements ArticleRepositoryInterface
     return Article::all()->sortByDesc('created_at');
   }
 
+  public function sessionArticle($request)
+  {
+      // 入力値の取得
+      $articles = new Article($request->all());
+
+      // セッションに保存
+      return $request->session()->put('articles', '$articles');
+  }
+
   public function createArticle($request, $article)
   {
     $article->fill($request->all());
@@ -45,6 +54,6 @@ class ArticleRepository implements ArticleRepositoryInterface
 
   public function deleteArticle($article)
   {
-    return Article::find($request->id)->delete();
+    return Article::find($article->id)->delete();
   }
 }
