@@ -34,14 +34,7 @@ class ArticleRepository implements ArticleRepositoryInterface
   public function sessionArticle($request)
   {
       // 入力値の取得
-      $articles = new Article($request->all());
-
-      // dd($request->toArray());
-      // セッションに保存
-      // return $request->session()->put('articles', '$articles');
-      return $request->session()->all();
-
-
+      return $article = new Article($request->all());
   }
 
   public function createArticle($request, $article)

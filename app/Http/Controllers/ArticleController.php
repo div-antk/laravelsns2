@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // モデルを使う
-// use App\Models\Article;
+use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Repositories\Article\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
@@ -48,9 +48,11 @@ class ArticleController extends Controller
     // 確認画面
     public function confirm(Request $request)
     {
+        // 入力値の取得
         $articles = $this->articleRepository->sessionArticle($request);
+        // セッションに保存
+        $request->session()->put('articles', '$articles');
 
-        // dd($articles);
         return view('articles.confirm')->with(['articles' => $articles]);
     }
 
