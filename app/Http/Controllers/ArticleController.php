@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // モデルを使う
-use App\Models\Article;
+// use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Repositories\Article\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
@@ -60,12 +60,10 @@ class ArticleController extends Controller
         // そのクラスのインスタンスが自動で生成されてメソッド内で使えるようになります。
     // このようにメソッドの内部で他のクラスのインスタンスを生成するのではなく
         // 外で生成されたクラスのインスタンスをメソッドの引数として受け取る流れをDI(Dependency Injection)と言います。
-    public function store(ArticleRequest $request, Article $article)
-    {
-        // ArticleクラスのDIを行わない場合の記述は以下
-        // $article = new Article();
 
-        $this->articleRepository->createArticle($request, $article);
+    public function store(Request $request)
+    {
+        $this->articleRepository->createArticle($request);
         
         return view('articles.complete');
     }

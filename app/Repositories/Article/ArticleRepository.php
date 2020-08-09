@@ -37,8 +37,9 @@ class ArticleRepository implements ArticleRepositoryInterface
       return $article = new Article($request->all());
   }
 
-  public function createArticle($request, $article)
+  public function createArticle($request)
   {
+    $article = New Article();
     $article->fill($request->all());
     $article->user_id = $request->user()->id;
     return $article->save();
