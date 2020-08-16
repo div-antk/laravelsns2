@@ -22,10 +22,47 @@ class ArticleController extends Controller
         // $this->authorizeResource(Article::class, 'article');
     }
 
+    // public function gerFiscalYear($start_date = '04/01')
+    // {
+    //     // 今日の日付
+    //     $today = date('Y/m/d');
+
+    //     $start_year = date('Y').'/'.$start_date;
+
+    //     dd($start_year);
+
+    // }
+
     public function index()
     {
         // allメソッドはモデルが持つクラスメソッド
         $articles = $this->articleRepository->getAll();
+
+
+
+        // 年度と数字を入力すると、その年の開始月と終わり月（うるう年考慮）を表示する
+
+        $input = 4;
+
+
+
+        $start_date = $input;
+
+        $smo = config('start_month.4');
+        
+        dd($smo);
+
+
+        // 今日の日付
+        $today = date('Y/m/d');
+
+        // 今年の4月1日を表示する
+        $start_year = date('Y').'/'.$start_date;
+
+        // $start_dateの1日前を表示する
+
+        dd($start_year);
+
 
         // viewメソッド
         // 第一引数はビューファイルの指定
