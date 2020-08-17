@@ -30,7 +30,8 @@
                 {{--『次回から自動でログインする』のチェックボックスに相当するが、チェックボックスではなく hidden にし、valueを on にしている--}}
                 {{-- つまり、常にチェックがオンになった状態になっている --}}
                 {{-- デフォルトでログイン状態が長く維持されるようになっている --}}
-                <input type="hidden" name="remember" id="remember" value="on">
+                <label>次回から自動でログイン</label>
+                <input type="checkbox" name="remember" id="remember" value="on">
 
                 <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ログイン</button>
 
