@@ -17,7 +17,7 @@ interface ArticleRepositoryInterface
 
     public function createArticle($request);
 
-    public function updateArticle($request, $article);
+    public function updateArticle($request, $artie);
 
     public function deleteArticle($article);
 }
