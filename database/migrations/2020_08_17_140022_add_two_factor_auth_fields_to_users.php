@@ -15,7 +15,7 @@ class AddTwoFactorAuthFieldsToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('tfa_token')
-                ->nullabel()
+                ->nullable()
                 ->after('remember_token');
             $table->dateTime('tfa_expiration')
                 ->nullable()
