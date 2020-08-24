@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // モデルを使う
 // use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
 use App\Repositories\Article\ArticleRepositoryInterface;
 use Illuminate\Http\Request;
@@ -38,6 +39,11 @@ class ArticleController extends Controller
         // allメソッドはモデルが持つクラスメソッド
         $articles = $this->articleRepository->getAll();
 
+        $user_id = Auth::id();
+
+        $body = $this->articleRepository->getArticleBody($user_id);
+
+        dd($body->toArray());
         // viewメソッド
         // 第一引数はビューファイルの指定
         // 第二引数はビューファイルに渡す変数の名称と、その変数の値を連想配列で指定

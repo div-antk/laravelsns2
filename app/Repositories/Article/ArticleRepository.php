@@ -31,6 +31,11 @@ class ArticleRepository implements ArticleRepositoryInterface
     return Article::all()->sortByDesc('created_at');
   }
 
+  public function getArticleBody($user_id)
+  {
+    return Article::select('body')->where('user_id', $user_id)->get();
+  }
+
   public function sessionArticle($request)
   {
       // 入力値の取得

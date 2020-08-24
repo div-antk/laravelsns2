@@ -20,4 +20,6 @@ interface ArticleRepositoryInterface
     public function updateArticle($request, $artie);
 
     public function deleteArticle($article);
+
+    public function getArticleBody($user_id);
 }
